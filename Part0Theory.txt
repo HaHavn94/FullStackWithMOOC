@@ -1,0 +1,41 @@
+0.4 New note diagram. Create a diagram depicting the situation where the user creates a new note on the page https://studies.cs.helsinki.fi/exampleapp/notes by writing something into the text field and clicking the Save button.
+sequence diagram
+
+participant browser
+participant server
+
+browser ->> server : POST https://studies.cs.helsinki.fi/exampleapp/new_note
+activate server
+server ->> browser : HTTP status code 302 (request to redirect )
+deactive server
+
+server ->> browser : GET https://studies.cs.helsinki.fi/exampleapp/notes
+activate server
+server ->> browser : HTML document
+deactivate server
+
+server ->> browser : GET https://studies.cs.helsinki.fi/exampleapp/main.css
+activate server
+server ->> browser : CSS style
+deactivate server
+
+server ->> browser : GET https://studies.cs.helsinki.fi/exampleapp/main.js
+activate server
+server ->> browser : JavaScript file 
+deactivate server
+
+   ** Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+activate server
+server-->>browser: json objects
+deactivate server
+
+   ** Note right of browser: The browser executes the callback function that renders the notes
+
+0.5 Create a diagram depicting the situation where the user goes to the single-page app version of the notes app at https://studies.cs.helsinki.fi/exampleapp/spa.
+
+participant browser
+participant server
+
+
