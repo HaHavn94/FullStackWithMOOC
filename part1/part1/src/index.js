@@ -4,12 +4,14 @@ import AppUnicafe from './part1/unicafe/AppUnicafe';
 import reportWebVitals from './reportWebVitals';
 import AppAnnecdotes from './part1/anecdotes/AppAnecdotes';
 import App from './part1/courseinfo/App';
+import AppCourseInformation from './part2/CourseInformation/AppCourseInformation';
+import AppPhoneBook from './part2/PhoneBook/AppPhoneBook';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <AppAnnecdotes />
+        <AppPhoneBook />
     </React.StrictMode>
 );
 
