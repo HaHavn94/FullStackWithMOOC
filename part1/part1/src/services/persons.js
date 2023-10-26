@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const urlBase = 'http://localhost:3001/persons';
+const urlBase = '/api/persons';
 
 const getAllPersons = () => {
-    return axios.get(urlBase);
+    return axios.get(urlBase)
 }
 
 const addPerson = (person) => {

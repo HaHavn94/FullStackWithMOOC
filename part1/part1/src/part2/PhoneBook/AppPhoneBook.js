@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
 import AddPerson from "./AddPerson"
 import Filter from "./Filter"
 import DisplayPhoneBook from "./DisplayPhoneBook"
 import '../../index.css'
+import personService from '../../services/persons';
 
 const AppPhoneBook = () => {
     const [persons, setPersons] = useState();
 
 
     useEffect(() => {
-        axios
-            .get('http://localhost:3001/persons')
+        personService.getAllPersons()
             .then(response => {
                 setPersons(response.data)
             })
